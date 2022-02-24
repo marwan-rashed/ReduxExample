@@ -23,7 +23,7 @@ const AddTask = ({ navigation }) => {
             {/* Input Form */}
             <View style = {{
                 width: '90%', height: '60%',
-                borderWidth: 2, borderRadius: 10, borderColor: '#54AEFF',
+                borderWidth: 3, borderRadius: 10, borderColor: '#54AEFF',
                 justifyContent: 'center', alignItems: 'center',
             }}>
                 <TextInput
@@ -32,16 +32,16 @@ const AddTask = ({ navigation }) => {
                     onChangeText = {(value) => setTitle(value)}
                     style = {{
                         width: '90%', height: 50, marginBottom: 20,
-                        borderColor: '#54AEFF', borderWidth: 1, borderRadius: 5
+                        borderColor: '#54AEFF', borderWidth: 2, borderRadius: 5
                     }}
                 />
                 <TextInput
+                    placeholder = "Description"
                     value = { description }
                     onChangeText = {(value) => setDescription(value)}
-                    placeholder = "Description"
                     style = {{
                         width: '90%', height: 50, marginBottom: 20,
-                        borderColor: '#54AEFF', borderWidth: 1, borderRadius: 5
+                        borderColor: '#54AEFF', borderWidth: 2, borderRadius: 5
                     }}
                 />
                 <TouchableOpacity

@@ -9,22 +9,45 @@ let lastId = 1;
 const tasksReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TASK:
-            const newState = {
-                ...state,
-                tasks: [
-                    ...state.tasks,
-                    {
-                        id: lastId++,
-                        title: action.payload.title,
-                        description: action.payload.description,
-                        completed: false
-                    }
-                ]
+            {
+                const newState = {
+                    ...state,
+                    tasks: [
+                        ...state.tasks,
+                        {
+                            id: lastId++,
+                            title: action.payload.title,
+                            description: action.payload.description,
+                            completed: false
+                        }
+                    ]
+                }
+                return newState;
             }
-            return newState;
-        case COMPLETE_TASK:
+
+        case COMPLETE_TASK: 
+            {
+                const index = state.tasks.findIndex(task => task.id == action.payload.id);
+                let tasks = [...state.tasks];
+                tasks[index].completed = true;
+                console.log('tasks', tasks);
+                const newState = {
+                    ...state,
+                    tasks
+                }
+                return newState;
+            }
 
         case REMOVE_TASK:
+            {
+                const newState = {
+                    ...state,
+                    tasks: [
+                        ...state.tasks.filter((task) => task.id !== action.payload.id)
+                    ]
+                }
+                return newState;
+            }
 
         default:
             return state;
