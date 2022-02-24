@@ -17,8 +17,10 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return(
     <NavigationContainer>
-      <Stack.Screen name = 'tasks' component = { Tasks }/>
-      <Stack.Screen name = 'addTask' component = { AddTask }/>
+      <Stack.Navigator>
+        <Stack.Screen name = 'Tasks' component = { Tasks }/>
+        <Stack.Screen name = 'Add Task' component = { AddTask }/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
